@@ -31,6 +31,7 @@ app.add_middleware(
         for origin in [
             "http://localhost:3000",
             "http://127.0.0.1:3000",
+            "https://exams.itshari.me",
             get_settings().frontend_url,
         ]
         if origin
