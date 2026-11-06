@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from . import models  # noqa: F401 — ensure models are registered before create_all
+from .config import get_settings
 from .db import Base, engine, ensure_phase03_columns
 from .routes import router
 from .routes_analysis import router as analysis_router
@@ -25,7 +26,15 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[
+        origin
+        for origin in [
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            get_settings().frontend_url,
+        ]
+        if origin
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )

@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     study_guide_size: int = 10
     database_url: str = "sqlite:///./exam_analyzer.db"
     storage_dir: str = "./storage/papers"
+    frontend_url: str = ""
 
 
 @lru_cache
