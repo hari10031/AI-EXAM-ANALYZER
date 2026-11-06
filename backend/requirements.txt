@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic-settings
+python-multipart
+pymupdf
+google-genai
+pytesseract
+pillow
+numpy
+# Postgres driver — uncomment when switching DATABASE_URL to PostgreSQL (required from Phase 03 for pgvector)
+# psycopg2-binary
